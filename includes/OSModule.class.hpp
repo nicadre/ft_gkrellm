@@ -5,11 +5,15 @@
 # include <iostream>
 # include <map>
 
-#define SIZE_TAB_OS 0
+#define SIZE_TAB_OS 3
 
 class OSModule : public IMonitorModule {
 private:
 	IMonitorModule::t_infos	_infos;
+
+	std::string		_osType(void);
+	std::string		_productName(void);
+	std::string		_productVersion(void);
 
 	OSModule(OSModule const &);
 
