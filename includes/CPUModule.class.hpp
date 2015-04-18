@@ -5,7 +5,7 @@
 # include <iostream>
 # include <map>
 
-#define SIZE_TAB_CPU 1
+#define SIZE_TAB_CPU 2
 
 class CPUModule : public IMonitorModule {
 private:
