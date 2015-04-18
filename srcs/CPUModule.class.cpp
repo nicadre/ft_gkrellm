@@ -16,11 +16,11 @@ void			CPUModule::refresh(void) {
 }
 
 void			CPUModule::refresh(std::string const & what) {
-	t_functions		tabptr[1] = {
+	t_functions		tabptr[SIZE_TAB_CPU] = {
 		{ "nbCPU" , &CPUModule::_nbCPU }
 	};
 
-	for (int i = 0 ; i < 1 ; i++) {
+	for (int i = 0 ; i < SIZE_TAB_CPU ; i++) {
 		if (tabptr[i].what == what)
 			this->_infos[what] = (this->*(tabptr[i].funptr))();
 	}

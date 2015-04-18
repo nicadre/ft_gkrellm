@@ -5,11 +5,14 @@
 # include <iostream>
 # include <map>
 
+#define SIZE_TAB_CPU 1
+
 class CPUModule : public IMonitorModule {
 private:
 	IMonitorModule::t_infos	_infos;
 
 	std::string				_nbCPU(void);
+	std::string				_typeCPU(void);
 
 	CPUModule(CPUModule const &);
 
