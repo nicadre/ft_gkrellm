@@ -6,7 +6,7 @@
 #    By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/04/18 09:53:09 by niccheva          #+#    #+#              #
-#    Updated: 2015/04/18 20:04:10 by niccheva         ###   ########.fr        #
+#    Updated: 2015/04/18 20:16:59 by niccheva         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -24,6 +24,7 @@ DINC			=	./includes/
 
 SRC				=	CPUModule.class.cpp				\
 					HostUsernameModule.class.cpp	\
+					OSModule.class.cpp				\
 					getInfos.cpp					\
 					main.cpp
 
