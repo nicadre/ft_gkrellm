@@ -5,9 +5,14 @@
 # include <iostream>
 # include <map>
 
+#define SIZE_TAB_CPU 1
+
 class CPUModule : public IMonitorModule {
 private:
-	std::map<std::string, std::string>			_infos;
+	IMonitorModule::t_infos	_infos;
+
+	std::string				_nbCPU(void);
+	std::string				_typeCPU(void);
 
 	CPUModule(CPUModule const &);
 
@@ -16,9 +21,17 @@ private:
 public:
 	CPUModule(void);
 
+	void				refresh(void);
+	void				refresh(std::string const & what);
+
 	virtual ~CPUModule(void);
 
-	std::map<std::string, std::string> const	&infos(void) const;
+	CPUModule::t_infos const			&infos(void) const;
+
+	typedef struct		s_functions {
+		std::string		what;
+		std::string		(CPUModule::*funptr)(void);
+	}					t_functions;
 };
 
 #endif //	CPUMODULE_CLASS_HPP

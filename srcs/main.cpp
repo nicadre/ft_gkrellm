@@ -1,7 +1,15 @@
+#include "CPUModule.class.hpp"
 #include <iostream>
 
 int		main(int ac, char **av) {
 	(void)ac;
 	(void)av;
-	std::cout << "Welcome bulgares!" << std::endl;
+
+	CPUModule		cpu;
+
+	cpu.refresh();
+
+	IMonitorModule::t_infos		cpuInfos = cpu.infos();
+
+	std::cout << "Welcome to the " << cpuInfos["nbCPU"] << " bulgares!" << std::endl;
 }

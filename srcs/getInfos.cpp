@@ -12,6 +12,7 @@ std::string	getInfos(std::string const & info) {
 		if (fgets(buffer, 128, pipe) != NULL)
 			result += buffer;
     }
+	*(result.end() - 1) = '\0';
     pclose(pipe);
     return result;
 }
