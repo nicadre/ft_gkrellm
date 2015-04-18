@@ -11,6 +11,8 @@ int		main(int ac, char **av) {
 
 	IMonitorModule::t_infos		cpuInfos = cpu.infos();
 
-	std::cout << "Welcome to the " << cpuInfos["nbCPU"]
-			  << " " << cpuInfos["typeCPU"] << " bulgares!" << std::endl;
+	std::cout << "Welcome\n" << std::endl;
+	std::cout << "~~~~ CPU informations ~~~~\n"
+			  << "Number of CPUs: " << cpuInfos["nbCPU"] << "\n"
+			  << "Type of CPU: " << cpuInfos["typeCPU"] << "\n" << std::endl;
 }
