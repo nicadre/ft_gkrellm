@@ -6,7 +6,7 @@
 #    By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/04/18 09:53:09 by niccheva          #+#    #+#              #
-#    Updated: 2015/04/18 09:54:17 by niccheva         ###   ########.fr        #
+#    Updated: 2015/04/18 16:54:36 by niccheva         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -22,7 +22,9 @@ DOBJ			=	./objs/
 
 DINC			=	./includes/
 
-SRC				=	main.cpp
+SRC				=	CPUModule.class.cpp				\
+					getInfos.cpp					\
+					main.cpp
 
 OBJ				=	$(patsubst %.cpp, $(DOBJ)%.o, $(SRC))
 
