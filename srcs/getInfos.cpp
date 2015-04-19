@@ -1,5 +1,6 @@
 #include "IMonitorModule.interface.hpp"
 #include <cstdio>
+#include <iostream>
 
 std::string	getInfos(std::string const & info) {
 	FILE	*pipe = popen(info.c_str(), "r");

@@ -60,7 +60,7 @@ int		panelDisplay() {
 
 typedef struct		s_panel {
 	int		what;
-	int		(*ptr)(void);
+	void	(*ptr)(void);
 }					t_panel;
 
 int		checkPanel(int input) {
@@ -104,19 +104,19 @@ int		inputUser() {
 }
 
 void	seeMagic() {
-	mvprintw(1, 2, " Magic bitch");
+	mvprintw(1, 2, " Magic");
 }
 
 void	seeHelp() {
 	mvprintw(1, 2, " Q for quit moube          M for seeing magic");
 }
 
-void	loop_ncurse(IMonitorModule::t_infos cpu, IMonitorModule::t_infos host,
- IMonitorModule::t_infos os, IMonitorModule::t_infos time, IMonitorModule::t_infos memory) {
+void	loop_ncurse(IMonitorModule::t_infos & cpu, IMonitorModule::t_infos & host,
+ IMonitorModule::t_infos & os, TimeModule & time, IMonitorModule::t_infos & memory) {
 	/* Maybe with window... */
 
 	std::string	tmp;
-
+		IMonitorModule::t_infos const &timeInfos = time.infos();
 /*	(void)cpu;
 	(void)host;
 	(void)os;
@@ -150,7 +150,10 @@ void	loop_ncurse(IMonitorModule::t_infos cpu, IMonitorModule::t_infos host,
 		attron(COLOR_PAIR(4));
 		mvprintw(14, 1, "  Time informations  ");
 		attroff(COLOR_PAIR(4));
-		tmp = time["date"];
+
+		time.refresh();
+		tmp = (timeInfos.find("date"))->second;
+
 		mvprintw(15, 2, "Date: %s", tmp.c_str());
 		attron(COLOR_PAIR(4));
 		mvprintw(17, 1, "  Memory informations  ");
@@ -159,7 +162,7 @@ void	loop_ncurse(IMonitorModule::t_infos cpu, IMonitorModule::t_infos host,
 		mvprintw(18, 2, "Total memory: %s", tmp.c_str());
 
 		refresh();
-		usleep(50000);
+		usleep(5000);
 	}
 }
 
@@ -182,8 +185,8 @@ void	voidinit() {
 	return ;
 }
 
-void	display_ncurse(IMonitorModule::t_infos cpu, IMonitorModule::t_infos host, IMonitorModule::t_infos os,
- IMonitorModule::t_infos time, IMonitorModule::t_infos memory) {
+void	display_ncurse(IMonitorModule::t_infos & cpu, IMonitorModule::t_infos & host, IMonitorModule::t_infos & os,
+ TimeModule & time, IMonitorModule::t_infos & memory) {
 	voidinit();
 	loop_ncurse(cpu, host, os, time, memory);
 	endwin();
