@@ -3,6 +3,7 @@
 
 HostUsernameModule::HostUsernameModule(void) {
 	this->_infos["hostName"] = this->_hostName();
+	this->_infos["userName"] = this->_userName();
 }
 
 HostUsernameModule::HostUsernameModule(HostUsernameModule const &) {}
@@ -17,7 +18,8 @@ void			HostUsernameModule::refresh(void) {
 
 void			HostUsernameModule::refresh(std::string const & what) {
 	t_functions		tabptr[SIZE_TAB_HOSTUSER] = {
-		{ "hostName" , &HostUsernameModule::_hostName}
+		{ "hostName" , &HostUsernameModule::_hostName},
+		{ "userName" , &HostUsernameModule::_userName}
 	};
 
 	for (int i = 0 ; i < SIZE_TAB_HOSTUSER ; i++) {
@@ -28,6 +30,10 @@ void			HostUsernameModule::refresh(std::string const & what) {
 
 std::string		HostUsernameModule::_hostName(void) {
 	return getInfos("sysctl -n kern.hostname");
+}
+
+std::string		HostUsernameModule::_userName(void) {
+	return getInfos("whoami");
 }
 
 HostUsernameModule::~HostUsernameModule(void) {}
