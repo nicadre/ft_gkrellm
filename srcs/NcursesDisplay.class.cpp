@@ -34,6 +34,7 @@ void							NcursesDisplay::display(void) const {
 	std::cout << this->_getData("ram", "total") << std::endl;
 
 	std::cout << this->_getData("host", "hostName") << std::endl;
+	std::cout << this->_getData("host", "userName") << std::endl;
 
 	std::cout << this->_getData("time", "date") << std::endl;
 }
