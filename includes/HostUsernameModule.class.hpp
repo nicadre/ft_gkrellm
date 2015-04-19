@@ -5,11 +5,13 @@
 # include <iostream>
 # include <map>
 
-#define SIZE_TAB_HOSTUSER 0
+#define SIZE_TAB_HOSTUSER 1
 
 class HostUsernameModule : public IMonitorModule {
 private:
 	IMonitorModule::t_infos	_infos;
+
+	std::string				_hostName(void);
 
 	HostUsernameModule(HostUsernameModule const &);
 
