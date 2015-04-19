@@ -1,8 +1,16 @@
 #include "NcursesDisplay.class.hpp"
 #include "CPUModule.class.hpp"
+#include "OSModule.class.hpp"
+#include "MemoryModule.class.hpp"
+#include "HostUsernameModule.class.hpp"
+#include "TimeModule.class.hpp"
 
 NcursesDisplay::NcursesDisplay(void) {
 	this->_modules["cpu"] = new CPUModule;
+	this->_modules["os"] = new OSModule;
+	this->_modules["ram"] = new MemoryModule;
+	this->_modules["host"] = new HostUsernameModule;
+	this->_modules["time"] = new TimeModule;
 }
 
 NcursesDisplay::NcursesDisplay(NcursesDisplay const &) {}
@@ -11,12 +19,23 @@ void							NcursesDisplay::_deleteModule(std::pair<std::string, IMonitorModule *
 	delete mod.second;
 }
 
-std::string const				&NcursesDisplay::_giveMePlease(std::string const & module, std::string const & value) const {
+std::string const				&NcursesDisplay::_getData(std::string const & module, std::string const & value) const {
 	return (this->_modules.find(module)->second->infos()).find(value)->second;
 }
 
 void							NcursesDisplay::display(void) const {
-	std::cout << this->_giveMePlease("cpu", "nbCPU") << std::endl;
+	std::cout << this->_getData("cpu", "nbCPU") << std::endl;
+	std::cout << this->_getData("cpu", "typeCPU") << std::endl;
+
+	std::cout << this->_getData("os", "osType") << std::endl;
+	std::cout << this->_getData("os", "productName") << std::endl;
+	std::cout << this->_getData("os", "productVersion") << std::endl;
+
+	std::cout << this->_getData("ram", "total") << std::endl;
+
+	std::cout << this->_getData("host", "hostName") << std::endl;
+
+	std::cout << this->_getData("time", "date") << std::endl;
 }
 
 NcursesDisplay::~NcursesDisplay(void) {

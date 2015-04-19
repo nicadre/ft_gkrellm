@@ -10,7 +10,7 @@ private:
 	int							_height;
 
 	static void					_deleteModule(std::pair<std::string, IMonitorModule *> mod);
-	std::string const			&_giveMePlease(std::string const & module, std::string const & value) const;
+	std::string const			&_getData(std::string const & module, std::string const & value) const;
 
 	NcursesDisplay(NcursesDisplay const &);
 

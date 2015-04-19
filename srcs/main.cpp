@@ -10,23 +10,23 @@ int		main(int ac, char **av) {
 	(void)ac;
 	(void)av;
 
-//	CPUModule			cpu;
-	HostUsernameModule	host;
-	OSModule			os;
-	TimeModule			time;
-	MemoryModule		memory;
+// 	CPUModule			cpu;
+// 	HostUsernameModule	host;
+// 	OSModule			os;
+// 	TimeModule			time;
+// 	MemoryModule		memory;
 
-	//cpu.refresh();
-	host.refresh();
-	os.refresh();
-	time.refresh();
-	memory.refresh();
+// 	cpu.refresh();
+// 	host.refresh();
+// 	os.refresh();
+// 	time.refresh();
+// 	memory.refresh();
 
-//	IMonitorModule::t_infos		cpuInfos = cpu.infos();
-	IMonitorModule::t_infos		hostInfos = host.infos();
-	IMonitorModule::t_infos		osInfos = os.infos();
-	IMonitorModule::t_infos		timeInfos = time.infos();
-	IMonitorModule::t_infos		memoryInfos = memory.infos();
+// 	IMonitorModule::t_infos		cpuInfos = cpu.infos();
+// 	IMonitorModule::t_infos		hostInfos = host.infos();
+// 	IMonitorModule::t_infos		osInfos = os.infos();
+// 	IMonitorModule::t_infos		timeInfos = time.infos();
+// 	IMonitorModule::t_infos		memoryInfos = memory.infos();
 
 	NcursesDisplay toto;
 
