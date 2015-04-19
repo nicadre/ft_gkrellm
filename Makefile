@@ -6,7 +6,7 @@
 #    By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/04/18 09:53:09 by niccheva          #+#    #+#              #
-#    Updated: 2015/04/19 03:48:44 by llapillo         ###   ########.fr        #
+#    Updated: 2015/04/19 11:51:49 by llapillo         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -41,7 +41,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@echo "Creation de l'executable :\033[0;32m"
-	$(CC) $(FLAGS) -o $(NAME) $(OBJ) -lncurses
+	$(CC) $(FLAGS) -o $(NAME) $(OBJ) -lform -lncurses
 	@echo "\033[0;m\c"
 
 $(DOBJ)%.o: $(DSRC)%.cpp
