@@ -3,8 +3,8 @@
 
 OSModule::OSModule(void) {
 	this->_infos["osType"] = this->_osType();
-	this->_infos["productName"] = this->_osType();
-	this->_infos["productVersion"] = this->_osType();
+	this->_infos["productName"] = this->_productName();
+	this->_infos["productVersion"] = this->_productVersion();
 }
 
 OSModule::OSModule(OSModule const &) {}
