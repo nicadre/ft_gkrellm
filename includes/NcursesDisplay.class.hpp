@@ -2,6 +2,14 @@
 # define	NCURSESDISPLAY_CLASS_HPP
 
 # include "IMonitorDisplay.interface.hpp"
+# include <curses.h>
+# include <unistd.h>
+
+#define QUIT 113
+#define RETURN 127
+#define HELP 104
+#define MAGIC 109
+#define NBR_PANELS 2
 
 class NcursesDisplay : public IMonitorDisplay {
 private:
@@ -16,10 +24,16 @@ private:
 
 	NcursesDisplay const		&operator=(NcursesDisplay const &);
 
+	void						initNcurses(void) const ;
+	void						loopNcurses(void) ;
+	void						viewModules(void) const ;
+	int							inputUser(void) ;
+	int							panelDisplay(void) ;
+
 public:
 	NcursesDisplay(void);
 
-	void							display(void) const;
+	void							display(void) ;
 
 	virtual ~NcursesDisplay(void);
 
@@ -30,6 +44,12 @@ public:
 	void							modules(IMonitorDisplay::t_infos const & modules);
 	void							width(int width);
 	void							height(int height);
+
+	typedef struct		s_panel {
+		int				what;
+		void			(NcursesDisplay::*ptr)(void) const;
+	}					t_panel;
+
 };
 
 #endif //	NCURSESDISPLAY_CLASS_HPP
