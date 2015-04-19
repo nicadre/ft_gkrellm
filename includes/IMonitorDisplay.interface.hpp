@@ -1,12 +1,15 @@
 #ifndef		IMONITORDISPLAY_INTERFACE_HPP
 # define	IMONITORDISPLAY_INTERFACE_HPP
 
+# include "IMonitorModule.interface.hpp"
+# include <map>
+# include <string>
+
 class IMonitorDisplay {
 public:
+	typedef std::map<std::string, IMonitorModule *>	t_infos;
 	virtual ~IMonitorDisplay(void) {}
-	virtual void		display(void) const = 0;
+	virtual void				display(void) const = 0;
 };
-
-std::string	getInfos(std::string const & info);
 
 #endif	//	IMONITORDISPLAY_INTERFACE_HPP

@@ -1,24 +1,35 @@
 #ifndef		NCURSESDISPLAY_CLASS_HPP
 # define	NCURSESDISPLAY_CLASS_HPP
 
-# include "IMonitorDisplay.class.hpp"
+# include "IMonitorDisplay.interface.hpp"
 
 class NcursesDisplay : public IMonitorDisplay {
 private:
-	std::map<std::string, IMonitorModule>			_modules;
-	int			_width;
-	int			_height;
+	IMonitorDisplay::t_infos	_modules;
+	int							_width;
+	int							_height;
+
+	static void					_deleteModule(std::pair<std::string, IMonitorModule *> mod);
+	std::string const			&_giveMePlease(std::string const & module, std::string const & value) const;
+
+	NcursesDisplay(NcursesDisplay const &);
+
+	NcursesDisplay const		&operator=(NcursesDisplay const &);
+
 public:
 	NcursesDisplay(void);
-	NcursesDisplay(NcursesDisplay const & src);
+
+	void							display(void) const;
 
 	virtual ~NcursesDisplay(void);
 
-	NcursesDisplay const			&operator=(NcursesDisplay const & rhs);
+	IMonitorDisplay::t_infos const	&modules(void) const;
+	int								width(void) const;
+	int								height(void) const;
 
-	void			modules(std::map<std::string, IMonitorModule> modules);
-	void			width(int width);
-	void			height(int height);
+	void							modules(IMonitorDisplay::t_infos const & modules);
+	void							width(int width);
+	void							height(int height);
 };
 
 #endif //	NCURSESDISPLAY_CLASS_HPP
