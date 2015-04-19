@@ -5,10 +5,6 @@
 #include "MemoryModule.class.hpp"
 #include <iostream>
 
-void	display_ncurse(IMonitorModule::t_infos cpu, IMonitorModule::t_infos host, IMonitorModule::t_infos os,
-					   IMonitorModule::t_infos time, IMonitorModule::t_infos memory);
-
-
 int		main(int ac, char **av) {
 	(void)ac;
 	(void)av;
@@ -46,5 +42,4 @@ int		main(int ac, char **av) {
 	std::cout << "~~~~ Memory informations ~~~~\n"
 			  << "Total: " << memoryInfos["total"] << "\n" << std::endl;
 
-	display_ncurse(cpuInfos, hostInfos, osInfos, timeInfos, memoryInfos);
 }

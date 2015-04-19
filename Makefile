@@ -6,7 +6,7 @@
 #    By: niccheva <niccheva@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/04/18 09:53:09 by niccheva          #+#    #+#              #
-#    Updated: 2015/04/19 03:48:44 by llapillo         ###   ########.fr        #
+#    Updated: 2015/04/19 15:41:24 by llapillo         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -28,7 +28,6 @@ SRC				=	CPUModule.class.cpp				\
 					TimeModule.class.cpp			\
 					MemoryModule.class.cpp			\
 					getInfos.cpp					\
-					ncurses.cpp						\
 					main.cpp
 
 OBJ				=	$(patsubst %.cpp, $(DOBJ)%.o, $(SRC))
