@@ -5,13 +5,14 @@
 # include <iostream>
 # include <map>
 
-#define SIZE_TAB_MEMORY 1
+#define SIZE_TAB_MEMORY 2
 
 class MemoryModule : public IMonitorModule {
 private:
 	IMonitorModule::t_infos	_infos;
 
 	std::string				_total(void);
+	std::string				_used(void);
 
 	MemoryModule(MemoryModule const &);
 

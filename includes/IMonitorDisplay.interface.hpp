@@ -9,7 +9,7 @@ class IMonitorDisplay {
 public:
 	typedef std::map<std::string, IMonitorModule *>	t_infos;
 	virtual ~IMonitorDisplay(void) {}
-	virtual void				display(void) const = 0;
+	virtual void				display(void) = 0;
 };
 
 #endif	//	IMONITORDISPLAY_INTERFACE_HPP

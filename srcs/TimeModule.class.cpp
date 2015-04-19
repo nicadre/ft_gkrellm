@@ -17,7 +17,7 @@ void			TimeModule::refresh(void) {
 
 void			TimeModule::refresh(std::string const & what) {
 	t_functions		tabptr[SIZE_TAB_TIME] = {
-		{ "nbTime" , &TimeModule::_date }
+		{ "date" , &TimeModule::_date }
 	};
 
 	for (int i = 0 ; i < SIZE_TAB_TIME ; i++) {
