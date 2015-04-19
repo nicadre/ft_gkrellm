@@ -2,6 +2,7 @@
 #include "HostUsernameModule.class.hpp"
 #include "OSModule.class.hpp"
 #include "TimeModule.class.hpp"
+#include "MemoryModule.class.hpp"
 #include <iostream>
 
 int		main(int ac, char **av) {
@@ -12,16 +13,19 @@ int		main(int ac, char **av) {
 	HostUsernameModule	host;
 	OSModule			os;
 	TimeModule			time;
+	MemoryModule		memory;
 
 	cpu.refresh();
 	host.refresh();
 	os.refresh();
 	time.refresh();
+	memory.refresh();
 
 	IMonitorModule::t_infos		cpuInfos = cpu.infos();
 	IMonitorModule::t_infos		hostInfos = host.infos();
 	IMonitorModule::t_infos		osInfos = os.infos();
 	IMonitorModule::t_infos		timeInfos = time.infos();
+	IMonitorModule::t_infos		memoryInfos = memory.infos();
 
 	std::cout << "Welcome\n" << std::endl;
 	std::cout << "~~~~ CPU informations ~~~~\n"
@@ -35,4 +39,6 @@ int		main(int ac, char **av) {
 			  << "OS: " << osInfos["productVersion"] << "\n" << std::endl;
 	std::cout << "~~~~ Time informations ~~~~\n"
 			  << "Date: " << timeInfos["date"] << "\n" << std::endl;
+	std::cout << "~~~~ Memory informations ~~~~\n"
+			  << "Total: " << memoryInfos["total"] << "\n" << std::endl;
 }

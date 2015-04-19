@@ -5,7 +5,7 @@
 # include <iostream>
 # include <map>
 
-#define SIZE_TAB_TIME 2
+#define SIZE_TAB_TIME 1
 
 class TimeModule : public IMonitorModule {
 private:
